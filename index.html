@@ -44,7 +44,7 @@
             <span class="material-icons">menu</span>
           </button>
           <!-- Get Started -->
-          <a href="#" class="btn btn-sm btn-dark">
+          <a href="#" class="btn btn-sm btn-warning">
             Get Started <i class="material-icons">arrow_forward</i>
           </a>
         </div>
@@ -76,6 +76,8 @@
 
     <!-- Hero Section -->
     <section class="hero-section" id="beranda">
+      <div id="particles-hero"></div>
+
       <div class="container">
         <div class="row align-items-center">
           <!-- Text -->
@@ -95,14 +97,14 @@
                 href="#"
                 data-aos="fade-up"
                 data-aos-duration="1600"
-                class="btn btn-outline-dark"
+                class="btn btn-outline-warning"
                 >Selengkapnya <i class="material-icons">arrow_forward</i></a
               >
               <a
                 href="#"
                 data-aos="fade-up"
                 data-aos-duration="1900"
-                class="btn btn-dark"
+                class="btn btn-warning"
                 >Daftar Sekarang</a
               >
             </div>
@@ -599,79 +601,110 @@
       AOS.init();
       // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
       // starting from v2 you can add only the features you need reducing the bundle size
-      $(document).ready(async function () {
+      document.addEventListener("DOMContentLoaded", async () => {
         await loadFull(tsParticles);
 
-        $(".hero-section")
-          .particles()
-          .init(
-            {
-              fpsLimit: 120,
-              interactivity: {
-                events: {
-                  onClick: {
-                    enable: true,
-                    mode: "push",
-                  },
-                  onHover: {
-                    enable: true,
-                    mode: "repulse",
-                  },
-                },
-                modes: {
-                  push: {
-                    quantity: 4,
-                  },
-                  repulse: {
-                    distance: 200,
-                    duration: 0.4,
-                  },
-                },
-              },
-              particles: {
-                color: {
-                  value: "#000",
-                },
-                links: {
-                  color: "#000",
-                  distance: 150,
-                  enable: true,
-                  opacity: 0.5,
-                  width: 1,
-                },
-                move: {
-                  direction: "none",
-                  enable: true,
-                  outModes: {
-                    default: "bounce",
-                  },
-                  random: false,
-                  speed: 6,
-                  straight: false,
-                },
-                number: {
-                  density: {
-                    enable: true,
-                  },
-                  value: 80,
-                },
-                opacity: {
-                  value: 0.5,
-                },
-                shape: {
-                  type: ["circle", "square"],
-                },
-                size: {
-                  value: { min: 1, max: 5 },
-                },
-              },
-              detectRetina: true,
+        tsParticles.load({
+          id: "particles-hero",
+          options: {
+            fullScreen: {
+              enable: false,
             },
-            function (container) {
-              // container is the particles container where you can play/pause or stop/start.
-              // the container is already started, you don't need to start it manually.
-            }
-          );
+            particles: {
+              color: {
+                value: ["#FFFFFF", "#FFd700"],
+              },
+              move: {
+                direction: "bottom",
+                enable: true,
+                outModes: {
+                  default: "out",
+                },
+                size: true,
+                speed: {
+                  min: 1,
+                  max: 3,
+                },
+              },
+              number: {
+                value: 500,
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+              },
+              opacity: {
+                value: 1,
+                animation: {
+                  enable: false,
+                  startValue: "max",
+                  destroy: "min",
+                  speed: 0.3,
+                  sync: true,
+                },
+              },
+              rotate: {
+                value: {
+                  min: 0,
+                  max: 360,
+                },
+                direction: "random",
+                move: true,
+                animation: {
+                  enable: true,
+                  speed: 60,
+                },
+              },
+              tilt: {
+                direction: "random",
+                enable: true,
+                move: true,
+                value: {
+                  min: 0,
+                  max: 360,
+                },
+                animation: {
+                  enable: true,
+                  speed: 60,
+                },
+              },
+              shape: {
+                type: ["circle", "square"],
+                options: {},
+              },
+              size: {
+                value: {
+                  min: 2,
+                  max: 4,
+                },
+              },
+              roll: {
+                darken: {
+                  enable: true,
+                  value: 30,
+                },
+                enlighten: {
+                  enable: true,
+                  value: 30,
+                },
+                enable: true,
+                speed: {
+                  min: 15,
+                  max: 25,
+                },
+              },
+              wobble: {
+                distance: 30,
+                enable: true,
+                move: true,
+                speed: {
+                  min: -15,
+                  max: 15,
+                },
+              },
+            },
+          },
+        });
       });
     </script>
   </body>

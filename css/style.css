@@ -12,12 +12,30 @@ body {
 }
 
 .hero-section {
+  position: relative;
+  overflow: hidden;
   padding: 80px 0;
-  background-color: #f8f9fa;
+  background-color: #000;
+}
+
+#particles-hero {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title {
   font-size: 2.8rem;
+  color:white;
   font-weight: bold;
 }
 .hero-title span {
@@ -26,7 +44,7 @@ body {
 .hero-text {
   font-size: 1rem;
   margin: 20px 0;
-  color: #555;
+  color: #fff;
 }
 
 .hero-image {
